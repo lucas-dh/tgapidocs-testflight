@@ -1,2 +1,7 @@
-# tgapidocs-testfight
-Test flight repo for TGAPI docs.
+# TGAPI 使用手册
+
+本仓库为您提供图观统一开发 API（TGAPI, 即 TuguanAPI）文档。
+
+图观统一开发 API 是一套基于 JavaScript 语言开发的二次编程接口，用于在现代浏览器中加载、显示图观引擎提供的流渲染或端渲染三维场景，并且为开发者提供在场景中绘制业务数据、触发场景交互、控制场景逻辑的功能。图观统一开发 API 兼容当前主流的 JavaScript 前端框架，例如 Vue.js 或者 React，前端开发人员可快速便捷的进行二次开发。
+
+## 目录
