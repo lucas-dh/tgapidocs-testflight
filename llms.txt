@@ -1,0 +1,142 @@
+# TGAPI Documentation Repository
+
+This is the official documentation repository for **TGAPI (图观统一开发 API)** - a JavaScript SDK for building 3D visualization applications in digital twin scenarios.
+
+## Project Overview
+
+TGAPI is a dual-mode 3D visualization SDK that supports:
+- **端渲染 (Scene/Client-side rendering)**: WebGL-based rendering directly in the browser
+- **流渲染 (Streaming rendering)**: Cloud-based GPU rendering with video streaming to client
+
+## Documentation Structure
+
+All documentation is in **Chinese** and organized as follows:
+
+```
+docs/
+├── 01.start/       # Getting Started (快速入门)
+│   ├── 01.overview.md       # Product overview and dual rendering architecture
+│   ├── 02.install.md        # Installation and deployment
+│   ├── 03.hands-on.md       # Quick hands-on tutorial
+│   ├── 04.event.md          # Event mechanism
+│   └── 05.history.md        # Version history
+│
+├── 02.manual/      # API Reference Manual (API 参考手册)
+│   ├── 01.global/                    # Global operations
+│   │   ├── 01.application/           # App management
+│   │   ├── 02.service/               # Service operations
+│   │   ├── 03.scene/                 # Scene control
+│   │   ├── 04.state/                 # State management
+│   │   ├── 05.camera/                # Camera control
+│   │   ├── 06.misc/                  # Miscellaneous operations
+│   │   ├── 07.administrative-area/   # Administrative area handling
+│   │   └── 08.animation/             # Animation control
+│   │
+│   ├── 02.overlay/              # Overlay layer control
+│   ├── 03.path/                 # Path operations
+│   ├── 04.area/                 # Area operations
+│   ├── 05.circular-area/        # Circular area
+│   ├── 06.oblique-photography/  # Oblique photography
+│   ├── 07.gis-map/              # GIS map
+│   ├── 08.terrain-process/      # Terrain processing
+│   ├── 09.wms-layer/            # WMS layer
+│   ├── 10.landmark-layer/       # Landmark layer
+│   ├── 11.column-layer/         # Column layer
+│   ├── 12.grid-layer/           # Grid layer
+│   ├── 13.heatmap-layer/        # Heatmap layer
+│   ├── 14.starlight-layer/      # Starlight layer
+│   ├── 15.bubble-layer/         # Bubble layer
+│   ├── 16.event-layer/          # Event layer
+│   ├── 17.trail-layer/          # Trail layer
+│   ├── 18.click-layer/          # Click interaction layer
+│   ├── 19.od-line-layer/        # OD line layer
+│   ├── 20.type-area/            # Type area
+│   ├── 21.color-area-layer/     # Color area layer
+│   ├── 22.path-spot-heatmap/    # Path spot heatmap
+│   ├── 23.path-segment-heatmap/ # Path segment heatmap
+│   ├── 24.mode-trail-layer/     # Mode trail layer
+│   └── 25.model-landmark-layer/ # Model landmark layer
+│
+├── 03.model/       # Model Operations (模型操作)
+│   ├── 01.default/        # Default model operations
+│   ├── 02.icon-model/     # Icon model operations
+│   ├── 03.building/       # Building operations
+│   ├── 04.marker/         # Marker operations
+│   └── 05.video-fusion/   # Video fusion operations
+│
+├── 04.graphical/   # Graphical Elements (图形元素)
+│   ├── 01.pyramid-sensor/  # Pyramid sensor
+│   ├── 02.cone-sensor/     # Cone sensor
+│   ├── 03.attach-sensor/   # Attach sensor
+│   └── 04.mesh/            # Mesh operations
+│
+└── 05.analysis/    # Analysis Features (分析功能)
+    ├── 01.skyline/         # Skyline analysis
+    ├── 02.viewshed/        # Viewshed analysis
+    ├── 03.sightline/       # Sightline analysis
+    ├── 04.flood-area/      # Flood area analysis
+    ├── 05.contour-line/    # Contour line analysis
+    ├── 06.split-compare/   # Split comparison
+    ├── 07.measure-path/    # Path measurement
+    └── 08.measure-area/    # Area measurement
+```
+
+## Key API Pattern
+
+All TGAPI operations follow this consistent pattern:
+
+```javascript
+// Initialize application
+let appInstance = new TGApp.App();
+
+// Initialize service with rendering mode
+appInstance.initService(
+  {
+    container: document.getElementById('container'),
+    mode: 'scene',              // 'scene' (端渲染) or 'streaming' (流渲染)
+    url: 'scene-url',
+    token: 'auth-token',
+    resourceBasePath: 'https://www.tuguan.net/public/tgapp/scene',
+  },
+  (result) => {
+    // Initialization callback
+  }
+);
+
+// All API calls use uniCall method
+appInstance.uniCall('methodName', jsonData, (result) => {
+  // Handle success/error
+});
+```
+
+## Technical Specifications
+
+- **SDK Version**: 3.3.x
+- **Browser Support**: Chrome 88+, Edge 88+, 360 Browser 13+
+- **Hardware Requirements**:
+  - Minimum: 8GB RAM + integrated graphics
+  - Recommended: 8GB RAM + NVIDIA GTX 960+ discrete graphics
+- **Framework Integration**: Supports Vue.js and React
+
+## Documentation Conventions
+
+1. **Language**: All documentation content is in Chinese
+2. **File Structure**: Each API category typically contains:
+   - `operation.md` - Method documentation
+   - `event.md` - Event handling (if applicable)
+3. **Code Examples**: All examples follow the `uniCall` pattern shown above
+4. **Mode Coverage**: When relevant, documentation covers both `scene` and `streaming` rendering modes
+
+## Key Files
+
+- [README.md](README.md) - Project overview and quick start guide
+- [CLAUDE.md](CLAUDE.md) - Instructions for Claude Code when working with this repository
+- [context7.json](context7.json) - Context7 configuration for documentation hosting
+
+## When Adding Documentation
+
+1. Place content under the appropriate section in `docs/`
+2. Maintain Chinese language throughout
+3. Follow existing markdown formatting patterns
+4. Include code examples using the `uniCall` pattern
+5. Cover both rendering modes when applicable
